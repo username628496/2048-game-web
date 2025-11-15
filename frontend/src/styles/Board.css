@@ -9,10 +9,14 @@
   flex-direction: column;
   gap: var(--spacing-md);
   box-shadow:
+    0 2px 8px rgba(119, 110, 101, 0.15),
     0 8px 32px rgba(119, 110, 101, 0.25),
-    inset 0 0 0 1px rgba(250, 248, 239, 0.1);
-  transition: background var(--transition-normal), box-shadow var(--transition-normal);
+    0 16px 64px rgba(119, 110, 101, 0.15),
+    inset 0 0 0 1px rgba(250, 248, 239, 0.15),
+    inset 0 2px 4px rgba(250, 248, 239, 0.05);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
+  overflow: hidden;
 
   /* Subtle grid overlay */
   background-image:
@@ -22,10 +26,34 @@
   background-color: var(--bg-board);
 }
 
+.board::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle at center, rgba(250, 248, 239, 0.03) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.board:hover {
+  box-shadow:
+    0 2px 12px rgba(119, 110, 101, 0.2),
+    0 12px 40px rgba(119, 110, 101, 0.3),
+    0 20px 72px rgba(119, 110, 101, 0.2),
+    inset 0 0 0 1px rgba(250, 248, 239, 0.2),
+    inset 0 2px 4px rgba(250, 248, 239, 0.08);
+  transform: translateY(-2px);
+}
+
 .board-row {
   display: flex;
   gap: var(--spacing-md);
   flex: 1;
+  position: relative;
+  z-index: 1;
 }
 
 @media (max-width: 520px) {
