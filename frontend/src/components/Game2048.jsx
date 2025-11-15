@@ -230,7 +230,7 @@ function Game2048() {
       )}
 
       <div className="board-wrapper">
-        <Board board={board} />
+        <Board board={board} onSwipe={handleMove} />
 
         {/* Win Overlay */}
         {won && !keepPlaying && (
@@ -265,7 +265,7 @@ function Game2048() {
       </div>
 
       <div className="controls-hint">
-        <strong>HOW TO PLAY:</strong> Use your <strong>arrow keys</strong> to move the tiles.
+        <strong>HOW TO PLAY:</strong> Use your <strong>arrow keys</strong> or <strong>swipe</strong> to move the tiles.
         Tiles with the same number <strong>merge into one</strong> when they touch.
         Add them up to reach <strong>2048!</strong>
       </div>

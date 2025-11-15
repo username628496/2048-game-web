@@ -68,3 +68,26 @@ a:focus-visible {
   -ms-user-select: none;
   user-select: none;
 }
+
+/* Fullscreen mode - prevent scroll */
+body.fullscreen-mode {
+  overflow: hidden;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  touch-action: none;
+}
+
+body.fullscreen-mode #root {
+  overflow-y: auto;
+  height: 100%;
+  -webkit-overflow-scrolling: touch;
+  touch-action: pan-y;
+}
+
+/* Additional mobile touch optimization */
+.board {
+  touch-action: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
