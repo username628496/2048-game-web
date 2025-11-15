@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Offline - 2048 Game</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #faf8ef 0%, #eee4da 100%);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 20px;
+    }
+
+    .offline-container {
+      text-align: center;
+      max-width: 500px;
+      padding: 40px;
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .offline-icon {
+      font-size: 80px;
+      margin-bottom: 20px;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.5; }
+    }
+
+    h1 {
+      color: #776e65;
+      font-size: 32px;
+      margin-bottom: 16px;
+    }
+
+    p {
+      color: #8f7a66;
+      font-size: 18px;
+      line-height: 1.6;
+      margin-bottom: 30px;
+    }
+
+    .retry-button {
+      display: inline-block;
+      padding: 15px 40px;
+      background: #8f7a66;
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      font-size: 18px;
+      font-weight: bold;
+      transition: background 0.3s;
+      border: none;
+      cursor: pointer;
+    }
+
+    .retry-button:hover {
+      background: #9f8a76;
+    }
+
+    .offline-features {
+      margin-top: 30px;
+      padding-top: 30px;
+      border-top: 2px solid #eee4da;
+    }
+
+    .offline-features h2 {
+      color: #776e65;
+      font-size: 20px;
+      margin-bottom: 15px;
+    }
+
+    .offline-features ul {
+      list-style: none;
+      color: #8f7a66;
+      font-size: 16px;
+    }
+
+    .offline-features li {
+      margin-bottom: 10px;
+      padding-left: 25px;
+      position: relative;
+    }
+
+    .offline-features li:before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      color: #8f7a66;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="offline-container">
+    <div class="offline-icon">📡</div>
+    <h1>You're Offline</h1>
+    <p>
+      No internet connection detected. But don't worry! Once you've visited the 2048 game,
+      you can play offline.
+    </p>
+    <button class="retry-button" onclick="location.reload()">
+      Try Again
+    </button>
+
+    <div class="offline-features">
+      <h2>Available Offline:</h2>
+      <ul>
+        <li>Full 2048 game experience</li>
+        <li>Score tracking</li>
+        <li>Best score saved locally</li>
+        <li>Smooth animations</li>
+      </ul>
+    </div>
+  </div>
+
+  <script>
+    // Auto-retry when online
+    window.addEventListener('online', () => {
+      location.reload();
+    });
+
+    // Check connection status
+    if (navigator.onLine) {
+      location.reload();
+    }
+  </script>
+</body>
+</html>

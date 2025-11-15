@@ -1,0 +1,58 @@
+.board {
+  width: 380px;
+  height: 380px;
+  background: var(--bg-board);
+  border-radius: var(--border-radius-lg);
+  padding: var(--spacing-md);
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+  box-shadow:
+    0 8px 32px rgba(119, 110, 101, 0.25),
+    inset 0 0 0 1px rgba(250, 248, 239, 0.1);
+  transition: background var(--transition-normal), box-shadow var(--transition-normal);
+  position: relative;
+
+  /* Subtle grid overlay */
+  background-image:
+    linear-gradient(rgba(119, 110, 101, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(119, 110, 101, 0.08) 1px, transparent 1px);
+  background-size: 20px 20px;
+  background-color: var(--bg-board);
+}
+
+.board-row {
+  display: flex;
+  gap: var(--spacing-md);
+  flex: 1;
+}
+
+@media (max-width: 520px) {
+  .board {
+    width: 280px;
+    height: 280px;
+    padding: 8px;
+    gap: 8px;
+    box-sizing: border-box;
+  }
+
+  .board-row {
+    gap: 8px;
+  }
+}
+
+@media (max-width: 380px) {
+  .board {
+    width: calc(100vw - 40px);
+    height: calc(100vw - 40px);
+    max-width: 280px;
+    max-height: 280px;
+    padding: 6px;
+    gap: 6px;
+  }
+
+  .board-row {
+    gap: 6px;
+  }
+}

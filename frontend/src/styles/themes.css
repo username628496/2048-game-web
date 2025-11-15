@@ -1,0 +1,216 @@
+/* ============================================
+   THEME SYSTEM - Light & Dark Modes
+   ============================================ */
+
+:root {
+  /* Light Theme (Classic 2048 Colors) */
+  --bg-primary: #faf8ef;
+  --bg-secondary: #f5f5f5;
+  --bg-board: #bbada0;
+  --bg-tile-empty: #cdc1b4;
+
+  /* Crypto UI - Typography */
+  --font-mono: 'JetBrains Mono', 'SF Mono', 'Courier New', monospace;
+
+  /* Tile Colors */
+  --tile-2: #eee4da;
+  --tile-4: #ede0c8;
+  --tile-8: #f2b179;
+  --tile-16: #f59563;
+  --tile-32: #f67c5f;
+  --tile-64: #f65e3b;
+  --tile-128: #edcf72;
+  --tile-256: #edcc61;
+  --tile-512: #edc850;
+  --tile-1024: #edc53f;
+  --tile-2048: #edc22e;
+
+  /* UI Elements - Minimal Elegant */
+  --ui-panel-bg: rgba(238, 228, 218, 0.4);
+  --ui-panel-border: rgba(187, 173, 160, 0.2);
+  --ui-button-bg: rgba(238, 228, 218, 0.5);
+  --ui-button-hover: rgba(242, 177, 121, 0.2);
+  --ui-button-active: rgba(245, 149, 99, 0.3);
+
+  /* Text Colors */
+  --text-primary: #776e65;
+  --text-secondary: #8f7a66;
+  --text-light: #f9f6f2;
+  --text-dark: #776e65;
+  --text-tile-light: #776e65;
+  --text-tile-dark: #f9f6f2;
+
+  /* Shadows - Minimal */
+  --shadow-sm: 0 1px 3px rgba(119, 110, 101, 0.06);
+  --shadow-md: 0 2px 6px rgba(119, 110, 101, 0.08);
+  --shadow-lg: 0 4px 12px rgba(119, 110, 101, 0.1);
+
+  /* Borders */
+  --border-radius-sm: 6px;
+  --border-radius-md: 8px;
+  --border-radius-lg: 12px;
+
+  /* Spacing */
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 12px;
+  --spacing-lg: 16px;
+  --spacing-xl: 24px;
+
+  /* Transitions */
+  --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-normal: 200ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: 300ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Dark Theme */
+[data-theme="dark"] {
+  /* Backgrounds */
+  --bg-primary: #1a1a1a;
+  --bg-secondary: #242424;
+  --bg-board: #2d2d2d;
+  --bg-tile-empty: #3a3a3a;
+
+  /* Crypto UI - Dark mode adjustments */
+  --font-mono: 'JetBrains Mono', 'SF Mono', 'Courier New', monospace;
+
+  /* Tile Colors (darker versions) */
+  --tile-2: #3a3a3a;
+  --tile-4: #4a4a4a;
+  --tile-8: #8b5a2b;
+  --tile-16: #a0522d;
+  --tile-32: #b8623f;
+  --tile-64: #c8502d;
+  --tile-128: #b8982f;
+  --tile-256: #b89428;
+  --tile-512: #b89020;
+  --tile-1024: #b88c18;
+  --tile-2048: #b88810;
+
+  /* UI Elements - Minimal Elegant */
+  --ui-panel-bg: rgba(58, 58, 58, 0.4);
+  --ui-panel-border: rgba(74, 74, 74, 0.3);
+  --ui-button-bg: rgba(74, 74, 74, 0.5);
+  --ui-button-hover: rgba(139, 90, 43, 0.2);
+  --ui-button-active: rgba(160, 82, 45, 0.3);
+
+  /* Text Colors */
+  --text-primary: #e0e0e0;
+  --text-secondary: #b0b0b0;
+  --text-light: #f9f9f9;
+  --text-dark: #2a2a2a;
+  --text-tile-light: #e0e0e0;
+  --text-tile-dark: #f9f9f9;
+
+  /* Shadows - Minimal */
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.2);
+  --shadow-md: 0 2px 6px rgba(0, 0, 0, 0.25);
+  --shadow-lg: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Smooth theme transition */
+* {
+  transition: background-color var(--transition-normal),
+              color var(--transition-normal),
+              border-color var(--transition-normal),
+              box-shadow var(--transition-normal);
+}
+
+/* Prevent transition on page load */
+.no-transition * {
+  transition: none !important;
+}
+
+/* Dark mode specific glow adjustments */
+[data-theme="dark"] .tile-2 {
+  box-shadow: 0 0 12px rgba(58, 58, 58, 0.4),
+              0 0 0 2px rgba(58, 58, 58, 0.5);
+}
+
+[data-theme="dark"] .tile-4 {
+  box-shadow: 0 0 12px rgba(74, 74, 74, 0.4),
+              0 0 0 2px rgba(74, 74, 74, 0.5);
+}
+
+[data-theme="dark"] .tile-8 {
+  box-shadow: 0 0 16px rgba(139, 90, 43, 0.5),
+              0 0 0 2px rgba(139, 90, 43, 0.6);
+}
+
+[data-theme="dark"] .tile-16 {
+  box-shadow: 0 0 16px rgba(160, 82, 45, 0.5),
+              0 0 0 2px rgba(160, 82, 45, 0.6);
+}
+
+[data-theme="dark"] .tile-32 {
+  box-shadow: 0 0 18px rgba(184, 98, 63, 0.6),
+              0 0 0 2px rgba(184, 98, 63, 0.7);
+}
+
+[data-theme="dark"] .tile-64 {
+  box-shadow: 0 0 18px rgba(200, 80, 45, 0.6),
+              0 0 0 2px rgba(200, 80, 45, 0.7);
+}
+
+[data-theme="dark"] .tile-128 {
+  box-shadow: 0 0 20px rgba(184, 152, 47, 0.6),
+              0 0 0 2px rgba(184, 152, 47, 0.7);
+}
+
+[data-theme="dark"] .tile-256 {
+  box-shadow: 0 0 20px rgba(184, 148, 40, 0.6),
+              0 0 0 2px rgba(184, 148, 40, 0.7);
+}
+
+[data-theme="dark"] .tile-512 {
+  box-shadow: 0 0 22px rgba(184, 144, 32, 0.6),
+              0 0 0 2px rgba(184, 144, 32, 0.7);
+}
+
+[data-theme="dark"] .tile-1024 {
+  box-shadow: 0 0 22px rgba(184, 140, 24, 0.7),
+              0 0 0 2px rgba(184, 140, 24, 0.8);
+}
+
+[data-theme="dark"] .tile-2048 {
+  box-shadow: 0 0 24px rgba(184, 136, 16, 0.7),
+              0 0 0 3px rgba(184, 136, 16, 0.8);
+}
+
+[data-theme="dark"] .tile-2048 {
+  animation: winPulse 1s ease-in-out infinite, goldenGlowDark 2s ease-in-out infinite;
+}
+
+@keyframes goldenGlowDark {
+  0%, 100% {
+    box-shadow: 0 0 24px rgba(184, 136, 16, 0.7),
+                0 0 0 3px rgba(184, 136, 16, 0.8);
+  }
+  50% {
+    box-shadow: 0 0 32px rgba(184, 136, 16, 0.9),
+                0 0 0 3px rgba(184, 136, 16, 1);
+  }
+}
+
+/* Dark mode board grid overlay */
+[data-theme="dark"] .board {
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.5),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.05);
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 20px 20px;
+  background-color: var(--bg-board);
+}
+
+/* Dark mode glass panel adjustments */
+[data-theme="dark"] .game-header,
+[data-theme="dark"] .power-ups-panel,
+[data-theme="dark"] .modal-content,
+[data-theme="dark"] .toast-notification {
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}

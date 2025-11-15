@@ -1,0 +1,29 @@
+[Unit]
+Description=2048 Game Backend (Flask)
+After=network.target
+
+[Service]
+Type=simple
+User=deploy
+Group=deploy
+WorkingDirectory=/home/deploy/game-2048/backend
+Environment="PATH=/home/deploy/game-2048/backend/venv/bin"
+Environment="FLASK_ENV=production"
+Environment="FLASK_RUN_PORT=5001"
+ExecStart=/home/deploy/game-2048/backend/venv/bin/python app.py
+
+# Restart policy
+Restart=always
+RestartSec=10
+
+# Security settings
+NoNewPrivileges=true
+PrivateTmp=true
+
+# Logging
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=2048-backend
+
+[Install]
+WantedBy=multi-user.target
