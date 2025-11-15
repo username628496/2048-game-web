@@ -62,9 +62,9 @@ function App() {
       <FAQ />
 
       <footer className="App-footer">
-        <p>&copy; 2024 2048web.com - Play 2048 Game Online Free</p>
+        <p>&copy; 2024 - 2048web.com - Play 2048 Game Online Free</p>
         <p className="credits">
-          Original game by <a href="https://gabrielecirulli.com" target="_blank" rel="noopener noreferrer">Gabriele Cirulli</a>
+          Code by Lynh's husband
         </p>
       </footer>
     </div>
