@@ -1,9 +1,21 @@
 from flask import Flask, jsonify, request
 from flask_cors import CORS
 import random
+import os
 
 app = Flask(__name__)
-CORS(app)
+
+# CORS configuration for production
+# Allow requests from your domain
+allowed_origins = os.environ.get('ALLOWED_ORIGINS', 'https://2048web.com,http://localhost:3000,http://localhost:3002').split(',')
+
+CORS(app,
+     resources={r"/api/*": {
+         "origins": allowed_origins,
+         "methods": ["GET", "POST", "OPTIONS"],
+         "allow_headers": ["Content-Type"]
+     }},
+     supports_credentials=False)
 
 class Game2048:
     def __init__(self):
